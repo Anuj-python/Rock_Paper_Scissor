@@ -1,0 +1,55 @@
+import random
+
+print("Welcome to the Rock,Paper, Scissor Game.\n")
+while True:
+
+    print("Enter your choice- 1-Rock, 2-Paper,3-Scissor ")
+    user_choice= int(input("Enter your choice 1,2,3: - "))
+    while user_choice >3 or user_choice <1 :
+        user_choice= int(input("Enter the valid choice 1,2,3: - "))
+
+    if user_choice==1:
+        user_choice_name= 'Rock'
+    elif user_choice==2:
+        user_choice_name= 'Paper'
+    else:
+        user_choice_name= 'Scissor'
+
+    print("Computer's turn to choice the input")
+    choice= [1,2,3]
+    comp_choice= random.randint(1,3)
+    if comp_choice==1:
+        comp_choice_name='Rock'
+    elif comp_choice==2:
+        comp_choice_name= 'Paper'
+    else:
+        comp_choice_name='scissor'
+    print("computer choice: ",comp_choice_name)
+
+    print(user_choice_name,'vs' ,comp_choice_name)
+
+    
+    if (user_choice==1 and comp_choice==2) or (user_choice==2 and comp_choice==1):
+        result= 'Paper'
+        print("won- Paper")
+    elif (user_choice==2 and comp_choice==3) or (user_choice==3 and comp_choice==2):
+        result= 'scissor'
+        print("won- scissor")
+
+    elif (user_choice==3 and comp_choice==1) or (user_choice==1 and comp_choice==3):
+        result= 'rock'
+        print("won- Rock")
+    # else:
+    elif user_choice==comp_choice:
+        result= 'draw'
+        print("draw -tie")
+
+    if result == 'draw':
+        print("<== It's a tie! ==>")
+    elif result == user_choice:
+        print("<== User wins! ==>")
+    else:
+        print("<== Computer wins! ==>")
+        break
+
+print("Thanks for playing")
